@@ -1,0 +1,110 @@
+<html>
+<head>
+<!-- Bootstrap -->
+<link href="{{ url_for('static', filename='styles/bootstrap.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<style>
+	.table-admin {
+		padding-left: 10px;
+		padding-top: 10px;
+		}
+		
+</style>
+</head>
+
+<body>
+	<div class="top-header"><!-- top header -->
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-3 col-sm-12"><a class="logo" href="index.html"><img src="static/images/logo.png" alt=""></a> </div>
+			<div class="col-md-9 hidden-sm hidden-xs">
+			  <div class="top-link">
+				<div class="row">
+				  <div class="col-md-6">
+					<i class="fa fa-clock-o"></i>Mon to sat: 10:00am to 6:00pm
+				  </div>
+				  <div class="col-md-3">
+					<i class="fa fa-phone"></i> <a href="cantact-us.html">+91 123 4567 789</a>
+				  </div>
+				  <div class="col-md-3">
+					<i class="fa fa-envelope-o"></i> <a href="cantact-us.html">info@cardio.com</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class=""><!-- navigation-transparent -->
+		<div class="header"><!-- navigation -->
+		  <div class="container">
+			<div class="row">
+			  
+			  <div class="col-md-10 col-sm-12">
+				<div id="navigation" class="navigation">
+				  <ul>
+					<li class="active"><a href="{{ url_for('index') }}" title="Home" class="animsition-link">Home</a></li>            
+					</ul>
+				</div>
+			  </div>
+			 
+			</div>
+		  </div>
+		</div>
+	  </div>	
+<!-- Patients data -->
+ <h2 class="table-admin"> Members</h2> 
+ 
+ <table class="table">
+	<thead>
+	    <tr>
+		<th scope="col">#</th>
+		<th scope="col">Email</th>
+		<th scope="col">Password</th>
+		<th scope="col">Type</th>
+		<th scope="col">Picture</th>
+	  	</tr>
+	</thead>	  
+    <tbody>
+		{% for data in admindata %}
+		<tr>
+		 <th scope="row">{{loop.index}}</th>
+		 {% for x in data %}
+		  <td> {{x}}</td>
+		 {% endfor %}
+		</tr>	
+		{% endfor %}
+		
+	</tbody>
+	   	
+  </table>
+
+<!-- Doctor data -->
+  <h2 class="table-admin"> Contact info</h2>
+	  
+  <table class="table table-hover">
+	  <thead>
+		<tr>
+		  <th scope="col">#</th>
+		  <th scope="col">Name</th>
+		  <th scope="col">Email</th>
+		  <th scope="col">Phone number</th>
+		  <th scope="col">Message</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		{% for data2 in contact %}
+		<tr>
+		 <th scope="row">{{loop.index}}</th>
+		 {% for y in data2 %}
+		  <td> {{y}}</td>
+		 {% endfor %}
+		</tr>	
+		{% endfor %}
+	  </tbody>
+	</table>
+
+</body>
+</html>
